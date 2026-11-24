@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useRef } from "react";
-import logo from "@/assets/logo.png.asset.json";
+import logo from "@/assets/logo.png";
 import { Cursor, Magnetic, Spotlight, useMouse } from "@/components/deck/fx";
 import { slides } from "@/components/deck/slides";
 
@@ -48,7 +48,7 @@ function Deck() {
       <Spotlight x={x} y={y} />
       <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(var(--foreground)_1px,transparent_1px),linear-gradient(90deg,var(--foreground)_1px,transparent_1px)] [background-size:80px_80px]" />
       <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-5 sm:px-12">
-        <button onClick={() => go(0)} className="flex items-center gap-3"><img src={logo.url} alt="" className="h-9 w-9" /><span className="text-left leading-none"><span className="block font-bold tracking-[0.2em]">AVERMONT</span><span className="block text-[10px] tracking-[0.45em] text-gold">MARKETING</span></span></button>
+        <button onClick={() => go(0)} className="flex items-center gap-3"><img src={logo} alt="" className="h-9 w-9" /><span className="text-left leading-none"><span className="block font-bold tracking-[0.2em]">AVERMONT</span><span className="block text-[10px] tracking-[0.45em] text-gold">MARKETING</span></span></button>
         <div className="flex items-center gap-4 text-xs text-muted-foreground"><span className="hidden sm:inline">← → to navigate · F for fullscreen</span><span className="font-medium text-foreground">{String(i + 1).padStart(2, "0")} / {n}</span></div>
       </header>
       <AnimatePresence mode="wait" custom={dir.current}>

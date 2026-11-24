@@ -1,6 +1,6 @@
 import { motion, useTransform, type MotionValue } from "framer-motion";
 import { useState } from "react";
-import hero from "@/assets/hero.png.asset.json";
+import hero from "@/assets/hero.png";
 import { Tilt, Words, rise } from "./fx";
 
 type M = { x: MotionValue<number>; y: MotionValue<number> };
@@ -36,7 +36,7 @@ function Cover({ x, y }: M) {
       <motion.div style={{ x: px, y: py }} initial={{ opacity: 0, scale: 0.85, rotate: -6 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ delay: 0.4, duration: 1, type: "spring" }} className="relative hidden lg:block">
         <motion.div animate={{ rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} className="absolute -inset-16 rounded-full border border-dashed border-gold/30" />
         <Tilt className="rounded-3xl border border-gold/30 bg-card p-3 shadow-2xl">
-          <img src={hero.url} alt="Avermont branded menu, coffee and phone" className="rounded-2xl" />
+          <img src={hero} alt="Avermont branded menu, coffee and phone" className="rounded-2xl" />
           <div className="p-4 text-center"><p className="text-2xl font-bold">A brand to crave.</p><p className="mt-1 text-xs uppercase tracking-[0.3em] text-gold">Designed to be discovered</p></div>
         </Tilt>
       </motion.div>
@@ -121,7 +121,7 @@ function Restaurants() {
       <Tilt className="rounded-3xl border border-border bg-card p-4">
         <div className="flex items-center gap-3 pb-3"><div className="h-9 w-9 rounded-full bg-gradient-to-br from-gold to-accent" /><p className="font-medium">your_restaurant</p></div>
         <div className="relative" onDoubleClick={() => setLiked(true)}>
-          <img src={hero.url} alt="Sample restaurant post" className="aspect-square w-full rounded-xl object-cover" />
+          <img src={hero} alt="Sample restaurant post" className="aspect-square w-full rounded-xl object-cover" />
           {liked && <motion.span key={String(liked)} initial={{ scale: 0, opacity: 1 }} animate={{ scale: [0, 1.4, 1], opacity: [1, 1, 0] }} transition={{ duration: 1 }} className="absolute inset-0 flex items-center justify-center text-8xl text-gold">♥</motion.span>}
         </div>
         <div className="flex gap-4 pt-3 text-2xl">
